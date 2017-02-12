@@ -7,6 +7,6 @@
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <property name="context-root" value="portal"/>
         <property name="java-output-path" value="/portal/target/classes"/>
-        <property name="component.exclusion.patterns" value="WEB-INF/lib/log4j-${log4j.version}.jar"/>
+        <property name="component.exclusion.patterns" value="WEB-INF/lib/log4j-1.2.17.jar"/>
     </wb-module>
 </project-modules>

@@ -7,10 +7,11 @@
   <name>portal Maven Webapp</name>
   <url>http://maven.apache.org</url>
   
-  <properties>
-		
+  <!-- maven 仓库设置可以在maven的配置文件中设置，但是ECLIPSE中maven的设置的配置文件的目录不在maven安装目录下
+  而是 C:\Users\hewendi\.m2\ -->
+  <properties>		
 		<!-- main version setting -->
-		<spring.version>4.3.5.RELEASE</spring.version>
+		<spring.version>4.3.6.RELEASE</spring.version>
 		<validator.version>5.2.6.Final</validator.version>
 		<mybatis.version>3.4.2</mybatis.version>
 		<mybatis-spring.version>1.3.1</mybatis-spring.version>
@@ -23,6 +24,8 @@
 		
 		<!-- tools version setting -->
 		<slf4j.version>1.7.22</slf4j.version>
+		<log4j.version>1.2.17</log4j.version>
+		
 		<commons-lang3.version>3.5</commons-lang3.version>
 		<commons-io.version>2.5</commons-io.version>
 		<commons-codec.version>1.10</commons-codec.version>
@@ -55,16 +58,24 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
+      <version>4.11</version>
       <scope>test</scope>
     </dependency>
     
      <!-- Servlet -->    
-    <dependency>      
+    <!-- <dependency>      
         <groupId>javax.servlet</groupId>      
         <artifactId>servlet-api</artifactId>      
         <version>3.0-alpha-1</version>      
         <scope>provided</scope>      
+    </dependency>
+    --> 
+    
+    <!-- 导入java ee jar 包 -->  
+    <dependency>  
+        <groupId>javax</groupId>  
+        <artifactId>javaee-api</artifactId>  
+        <version>7.0</version>  
     </dependency>
     
    	<!-- SPRING begin -->
@@ -79,6 +90,11 @@
 			</exclusion>
 		</exclusions>
 	</dependency>
+	<dependency>  
+            <groupId>org.springframework</groupId>  
+            <artifactId>spring-web</artifactId>  
+            <version>${spring.version}</version>  
+    </dependency>
 	<dependency>
 		<groupId>org.springframework</groupId>
 		<artifactId>spring-beans</artifactId>
@@ -94,6 +110,11 @@
 		<artifactId>spring-context-support</artifactId>
 		<version>${spring.version}</version>
 	</dependency>
+	<dependency>  
+            <groupId>org.springframework</groupId>  
+            <artifactId>spring-webmvc</artifactId>  
+            <version>${spring.version}</version>  
+    </dependency>
 	<dependency>
 		<groupId>org.springframework</groupId>
 		<artifactId>spring-aop</artifactId>
@@ -109,8 +130,7 @@
 		<groupId>org.springframework</groupId>
 		<artifactId>spring-tx</artifactId>
 		<version>${spring.version}</version>
-	</dependency>
-		
+	</dependency>		
 	<!-- spring orm -->
 	<dependency>
 		<groupId>org.springframework</groupId>
@@ -122,12 +142,98 @@
 		<artifactId>spring-jdbc</artifactId>
 		<version>${spring.version}</version>
 	</dependency>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-test</artifactId>
+		<version>${spring.version}</version>
+	</dependency>
+	<!-- spring end -->
+	
+	<!-- mybatis核心包 -->
+	<dependency>
+		<groupId>org.mybatis</groupId>
+		<artifactId>mybatis</artifactId>
+		<version>${mybatis.version}</version>
+	</dependency>
+	<!-- mybatis/spring包 -->
+	<dependency>
+		<groupId>org.mybatis</groupId>
+		<artifactId>mybatis-spring</artifactId>
+		<version>1.2.2</version>
+	</dependency>
+    
     <!-- 导入Mysql数据库链接jar包 -->  
     <dependency>  
         <groupId>mysql</groupId>  
         <artifactId>mysql-connector-java</artifactId>  
         <version>5.1.30</version>  
-    </dependency> 
+    </dependency>    
+    <!-- 导入dbcp的jar包，用来在applicationContext.xml中配置数据库 -->  
+	<dependency>  
+		<groupId>commons-dbcp</groupId>  
+		<artifactId>commons-dbcp</artifactId>  
+		<version>1.2.2</version>  
+	</dependency>
+	
+	<!-- JSTL标签类 -->  
+	<dependency>  
+		<groupId>jstl</groupId>  
+		<artifactId>jstl</artifactId>  
+		<version>1.2</version>  
+	</dependency>
+	 
+	<!-- 日志文件管理包 -->  
+	<!-- log start -->  
+	<dependency>  
+		<groupId>log4j</groupId>  
+		<artifactId>log4j</artifactId>  
+		<version>${log4j.version}</version>  
+	</dependency>
+	<dependency>  
+		<groupId>org.slf4j</groupId>  
+		<artifactId>slf4j-api</artifactId>  
+		<version>${slf4j.version}</version>  
+	</dependency>	
+	<dependency>  
+		<groupId>org.slf4j</groupId>  
+		<artifactId>slf4j-log4j12</artifactId>  
+		<version>${slf4j.version}</version>  
+	</dependency>  
+	<!-- log end -->
+	
+	<!-- 格式化对象，方便输出日志 -->  
+	<dependency>  
+		<groupId>com.alibaba</groupId>  
+		<artifactId>fastjson</artifactId>  
+		<version>1.2.24</version>  
+	</dependency> 
+	<!-- 映入JSON -->  
+	<dependency>  
+		<groupId>org.codehaus.jackson</groupId>  
+		<artifactId>jackson-mapper-asl</artifactId>  
+		<version>1.9.13</version>  
+	</dependency>  
+	<!-- 上传组件包 -->  
+	<dependency>  
+		<groupId>commons-fileupload</groupId>  
+		<artifactId>commons-fileupload</artifactId>  
+		<version>1.3.1</version>  
+	</dependency>  
+	<dependency>  
+		<groupId>commons-io</groupId>  
+		<artifactId>commons-io</artifactId>  
+		<version>2.4</version>  
+	</dependency>  
+	<dependency>  
+		<groupId>commons-codec</groupId>  
+		<artifactId>commons-codec</artifactId>  
+		<version>1.9</version>  
+	</dependency>
+	<dependency>
+	    <groupId>commons-logging</groupId>
+	    <artifactId>commons-logging</artifactId>
+	    <version>1.2</version>
+	</dependency>
   </dependencies>
   <build>
     <finalName>portal</finalName> 
