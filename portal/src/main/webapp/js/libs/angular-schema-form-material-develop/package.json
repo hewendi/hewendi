@@ -1,0 +1,56 @@
+{
+  "name": "angular-schema-form-material",
+  "version": "1.0.0-alpha.2",
+  "description": "Angular Material decorator for Angular Schema Form",
+  "main": "dist/material-decorator.js",
+  "scripts": {
+    "build": "webpack",
+    "dist": "webpack --config webpack.config.dist.js",
+    "watch": "webpack --watch",
+    "test": "echo \"Error: test not currently available\" && exit 1",
+    "test-me": "karma start --log-level debug"
+  },
+  "keywords": [
+    "angular-schema-form-decorator"
+  ],
+  "author": "json-schema-form",
+  "contributors": [
+    "Marcel J Bennett <iamanthropic@gmail.com> (https://github.com/Anthropic)"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "angular": ">= 1.2",
+    "angular-messages": "^1.5.0",
+    "angular-sanitize": ">= 1.2",
+    "tv4": "~1.0.15"
+  },
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-core": "^6.10.4",
+    "babel-loader": "^6.2.4",
+    "babel-polyfill": "^6.9.1",
+    "babel-preset-es2015": "^6.9.0",
+    "chai": "^3.5.0",
+    "coveralls": "^2.11.0",
+    "html": "^1.0.0",
+    "html-loader": "^0.4.4",
+    "html-webpack-plugin": "^2.25.0",
+    "karma": "^0.13.22",
+    "karma-chai-sinon": "^0.1.5",
+    "karma-coverage": "^1.0.0",
+    "karma-growler-reporter": "0.0.1",
+    "karma-mocha": "^1.0.1",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "karma-webpack": "^1.7.0",
+    "mocha": "^2.5.3",
+    "mocha-lcov-reporter": "0.0.1",
+    "ngtemplate-loader": "^1.3.1",
+    "protractor": "^2.5.1",
+    "sinon": "^1.17.4",
+    "sinon-chai": "^2.8.0",
+    "streamqueue": "^0.1.3",
+    "uglify-js": "^2.6.2",
+    "webpack": "^2.1.0-beta.28",
+    "webpack-dev-server": "^2.1.0-beta.12"
+  }
+}
