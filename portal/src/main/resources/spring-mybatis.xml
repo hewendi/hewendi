@@ -13,13 +13,13 @@
 			            http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
 			            http://mybatis.org/schema/mybatis-spring 
 			            http://mybatis.org/schema/mybatis-spring.xsd ">  
-       
+    <!-- 源自：http://www.360doc.com/content/15/0116/10/281812_441243762.shtml -->   
     <!-- 自动扫描 -->  
     <!-- <context:component-scan base-package="com.anyofficeanywhere.portal" /> -->
     <!-- 引入配置文件     -->
     <bean id="propertyConfigurer"  
         class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">  
-        <property name="location" value="classpath:jdbc.properties" />  
+        <property name="location" value="classpath:db.properties" />  
     </bean>
   	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"  
         destroy-method="close">  
@@ -43,7 +43,7 @@
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">  
         <property name="dataSource" ref="dataSource" />  
         <!-- 自动扫描mapping.xml文件 -->  
-        <property name="mapperLocations" value="classpath:com/cn/hnust/mapping/*.xml"></property>  
+        <property name="mapperLocations" value="classpath:com/anyofficeanywhere/admin/mapper/*.xml"></property>  
     </bean>  
   
     <!-- DAO接口所在包名，Spring会自动查找其下的类 -->  
