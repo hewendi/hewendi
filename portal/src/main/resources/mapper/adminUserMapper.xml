@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.anyofficeanywhere.admin.idao.adminUserMapper">
+  <resultMap id="BaseResultMap" type="com.anyofficeanywhere.admin.domain.adminUser">
+    <id column="user_id" jdbcType="SMALLINT" property="userId" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="add_time" jdbcType="INTEGER" property="addTime" />
+    <result column="last_login" jdbcType="INTEGER" property="lastLogin" />
+    <result column="last_ip" jdbcType="VARCHAR" property="lastIp" />
+    <result column="lang_type" jdbcType="VARCHAR" property="langType" />
+    <result column="agency_id" jdbcType="SMALLINT" property="agencyId" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.anyofficeanywhere.admin.domain.adminUserWithBLOBs">
+    <result column="action_list" jdbcType="LONGVARCHAR" property="actionList" />
+    <result column="nav_list" jdbcType="LONGVARCHAR" property="navList" />
+    <result column="todolist" jdbcType="LONGVARCHAR" property="todolist" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    user_id, user_name, email, password, add_time, last_login, last_ip, lang_type, agency_id
+  </sql>
+  <sql id="Blob_Column_List">
+    action_list, nav_list, todolist
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from aoaw_admin_user
+    where user_id = #{userId,jdbcType=SMALLINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from aoaw_admin_user
+    where user_id = #{userId,jdbcType=SMALLINT}
+  </delete>
+  <insert id="insert" parameterType="com.anyofficeanywhere.admin.domain.adminUserWithBLOBs">
+    insert into aoaw_admin_user (user_id, user_name, email, 
+      password, add_time, last_login, 
+      last_ip, lang_type, agency_id, 
+      action_list, nav_list, todolist
+      )
+    values (#{userId,jdbcType=SMALLINT}, #{userName,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{addTime,jdbcType=INTEGER}, #{lastLogin,jdbcType=INTEGER}, 
+      #{lastIp,jdbcType=VARCHAR}, #{langType,jdbcType=VARCHAR}, #{agencyId,jdbcType=SMALLINT}, 
+      #{actionList,jdbcType=LONGVARCHAR}, #{navList,jdbcType=LONGVARCHAR}, #{todolist,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.anyofficeanywhere.admin.domain.adminUserWithBLOBs">
+    insert into aoaw_admin_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="addTime != null">
+        add_time,
+      </if>
+      <if test="lastLogin != null">
+        last_login,
+      </if>
+      <if test="lastIp != null">
+        last_ip,
+      </if>
+      <if test="langType != null">
+        lang_type,
+      </if>
+      <if test="agencyId != null">
+        agency_id,
+      </if>
+      <if test="actionList != null">
+        action_list,
+      </if>
+      <if test="navList != null">
+        nav_list,
+      </if>
+      <if test="todolist != null">
+        todolist,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=SMALLINT},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="addTime != null">
+        #{addTime,jdbcType=INTEGER},
+      </if>
+      <if test="lastLogin != null">
+        #{lastLogin,jdbcType=INTEGER},
+      </if>
+      <if test="lastIp != null">
+        #{lastIp,jdbcType=VARCHAR},
+      </if>
+      <if test="langType != null">
+        #{langType,jdbcType=VARCHAR},
+      </if>
+      <if test="agencyId != null">
+        #{agencyId,jdbcType=SMALLINT},
+      </if>
+      <if test="actionList != null">
+        #{actionList,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="navList != null">
+        #{navList,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="todolist != null">
+        #{todolist,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.anyofficeanywhere.admin.domain.adminUserWithBLOBs">
+    update aoaw_admin_user
+    <set>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="addTime != null">
+        add_time = #{addTime,jdbcType=INTEGER},
+      </if>
+      <if test="lastLogin != null">
+        last_login = #{lastLogin,jdbcType=INTEGER},
+      </if>
+      <if test="lastIp != null">
+        last_ip = #{lastIp,jdbcType=VARCHAR},
+      </if>
+      <if test="langType != null">
+        lang_type = #{langType,jdbcType=VARCHAR},
+      </if>
+      <if test="agencyId != null">
+        agency_id = #{agencyId,jdbcType=SMALLINT},
+      </if>
+      <if test="actionList != null">
+        action_list = #{actionList,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="navList != null">
+        nav_list = #{navList,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="todolist != null">
+        todolist = #{todolist,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=SMALLINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.anyofficeanywhere.admin.domain.adminUserWithBLOBs">
+    update aoaw_admin_user
+    set user_name = #{userName,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      add_time = #{addTime,jdbcType=INTEGER},
+      last_login = #{lastLogin,jdbcType=INTEGER},
+      last_ip = #{lastIp,jdbcType=VARCHAR},
+      lang_type = #{langType,jdbcType=VARCHAR},
+      agency_id = #{agencyId,jdbcType=SMALLINT},
+      action_list = #{actionList,jdbcType=LONGVARCHAR},
+      nav_list = #{navList,jdbcType=LONGVARCHAR},
+      todolist = #{todolist,jdbcType=LONGVARCHAR}
+    where user_id = #{userId,jdbcType=SMALLINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.anyofficeanywhere.admin.domain.adminUser">
+    update aoaw_admin_user
+    set user_name = #{userName,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      add_time = #{addTime,jdbcType=INTEGER},
+      last_login = #{lastLogin,jdbcType=INTEGER},
+      last_ip = #{lastIp,jdbcType=VARCHAR},
+      lang_type = #{langType,jdbcType=VARCHAR},
+      agency_id = #{agencyId,jdbcType=SMALLINT}
+    where user_id = #{userId,jdbcType=SMALLINT}
+  </update>
+</mapper>
