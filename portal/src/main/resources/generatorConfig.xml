@@ -19,7 +19,7 @@
                         connectionURL="jdbc:oracle:thin:@172.20.16.***:1521:CARGO" userId="***"
                         password="***"/> -->
 		 <!-- 生成模型的包名和位置 domain-->
-        <javaModelGenerator targetPackage="com.anyofficeanywhere.admin.domain"
+        <javaModelGenerator targetPackage="com.woucloud.admin.domain"
                             targetProject="c:/java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
@@ -31,7 +31,7 @@
         </sqlMapGenerator>
         
 		<!-- 生成DAO的包名和位置--> 
-        <javaClientGenerator targetPackage="com.anyofficeanywhere.admin.mapper"
+        <javaClientGenerator targetPackage="com.woucloud.admin.mapper"
                              targetProject="c:/java" type="XMLMAPPER">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>

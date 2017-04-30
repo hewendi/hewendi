@@ -15,7 +15,7 @@
 			            http://mybatis.org/schema/mybatis-spring.xsd ">  
     <!-- 源自：http://www.360doc.com/content/15/0116/10/281812_441243762.shtml -->   
     <!-- 自动扫描 -->  
-    <!-- <context:component-scan base-package="com.anyofficeanywhere.portal" /> -->
+    <!-- <context:component-scan base-package="com.woucloud.portal" /> -->
     <!-- 引入配置文件     -->
     <!-- 加载db.properties文件中的内容，db.properties文件中key命名要有一定的特殊规则 -->
 	<context:property-placeholder location="classpath:jdbc.properties"/>
@@ -48,13 +48,13 @@
     <!-- mapper扫描器 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <!-- 扫描包路径，如果需要扫描多个包，中间使用半角逗号隔开 -->
-        <property name="basePackage" value="com.anyofficeanywhere.admin.mapper"></property>
+        <property name="basePackage" value="com.woucloud.admin.mapper"></property>
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
     </bean>  
   
     <!-- DAO接口所在包名，Spring会自动查找其下的类 -->  
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">  
-        <property name="basePackage" value="com.anyofficeanywhere.admin.dao" />  
+        <property name="basePackage" value="com.woucloud.admin.dao" />  
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>  
     </bean>  
   

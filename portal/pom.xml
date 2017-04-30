@@ -1,11 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.anyofficeanywhere</groupId>
+  <groupId>com.woucloud</groupId>
   <artifactId>portal</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>portal Maven Webapp</name>
-  <url>http://maven.apache.org</url>
+  <name>wou cloud</name>
+  <url>http://www.woucloud.com</url>
   
   <!-- maven 仓库设置可以在maven的配置文件中设置，但是ECLIPSE中maven的设置的配置文件的目录不在maven安装目录下
   而是 C:\Users\hewendi\.m2\ -->

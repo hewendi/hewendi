@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.anyofficeanywhere.admin.idao.adminUserMapper">
-  <resultMap id="BaseResultMap" type="com.anyofficeanywhere.admin.domain.adminUser">
+<mapper namespace="com.woucloud.admin.idao.adminUserMapper">
+  <resultMap id="BaseResultMap" type="com.woucloud.admin.domain.adminUser">
     <id column="user_id" jdbcType="SMALLINT" property="userId" />
     <result column="user_name" jdbcType="VARCHAR" property="userName" />
     <result column="email" jdbcType="VARCHAR" property="email" />
@@ -12,7 +12,7 @@
     <result column="lang_type" jdbcType="VARCHAR" property="langType" />
     <result column="agency_id" jdbcType="SMALLINT" property="agencyId" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.anyofficeanywhere.admin.domain.adminUserWithBLOBs">
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.woucloud.admin.domain.adminUserWithBLOBs">
     <result column="action_list" jdbcType="LONGVARCHAR" property="actionList" />
     <result column="nav_list" jdbcType="LONGVARCHAR" property="navList" />
     <result column="todolist" jdbcType="LONGVARCHAR" property="todolist" />
@@ -35,7 +35,7 @@
     delete from aoaw_admin_user
     where user_id = #{userId,jdbcType=SMALLINT}
   </delete>
-  <insert id="insert" parameterType="com.anyofficeanywhere.admin.domain.adminUserWithBLOBs">
+  <insert id="insert" parameterType="com.woucloud.admin.domain.adminUserWithBLOBs">
     insert into aoaw_admin_user (user_id, user_name, email, 
       password, add_time, last_login, 
       last_ip, lang_type, agency_id, 
@@ -47,7 +47,7 @@
       #{actionList,jdbcType=LONGVARCHAR}, #{navList,jdbcType=LONGVARCHAR}, #{todolist,jdbcType=LONGVARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.anyofficeanywhere.admin.domain.adminUserWithBLOBs">
+  <insert id="insertSelective" parameterType="com.woucloud.admin.domain.adminUserWithBLOBs">
     insert into aoaw_admin_user
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="userId != null">
@@ -126,7 +126,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.anyofficeanywhere.admin.domain.adminUserWithBLOBs">
+  <update id="updateByPrimaryKeySelective" parameterType="com.woucloud.admin.domain.adminUserWithBLOBs">
     update aoaw_admin_user
     <set>
       <if test="userName != null">
@@ -165,7 +165,7 @@
     </set>
     where user_id = #{userId,jdbcType=SMALLINT}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.anyofficeanywhere.admin.domain.adminUserWithBLOBs">
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.woucloud.admin.domain.adminUserWithBLOBs">
     update aoaw_admin_user
     set user_name = #{userName,jdbcType=VARCHAR},
       email = #{email,jdbcType=VARCHAR},
@@ -180,7 +180,7 @@
       todolist = #{todolist,jdbcType=LONGVARCHAR}
     where user_id = #{userId,jdbcType=SMALLINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.anyofficeanywhere.admin.domain.adminUser">
+  <update id="updateByPrimaryKey" parameterType="com.woucloud.admin.domain.adminUser">
     update aoaw_admin_user
     set user_name = #{userName,jdbcType=VARCHAR},
       email = #{email,jdbcType=VARCHAR},
