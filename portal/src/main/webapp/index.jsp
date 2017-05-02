@@ -37,6 +37,7 @@
 <![endif]-->
 </head>
 <body ng-app="firstApplication">
+<p>分支</p>
 <div id="layoutContainer" ng-controller="layoutController as ctrl" layout="row" style="height:100px;" ng-cloak layout-wrap>
    <div flex="30" class="green box">
       [flex="30"]
