@@ -37,9 +37,16 @@
 <![endif]-->
 </head>
 <body ng-app="firstApplication">
-<p>分支</p><p>有效</p><p>有效2</p>
 <div id="layoutContainer" ng-controller="layoutController as ctrl" layout="row" style="height:100px;" ng-cloak layout-wrap>
    <div flex="30" class="green box">
+      authentication  [ɔ:ˌθentɪ'keɪʃn] 身份验证登录
+      authorization [ˌɔ:θərəˈzeɪʃn] 授权
+      Session Manager：会话管理
+      Cryptography  [krɪp'tɑɡrəfi]：加密
+      Web Support：Web 支持
+      Caching：缓存
+      
+      DispatcherServle 调度器；分发器；分配器
       [flex="30"]
    </div>
    <div flex="45" class="blue box">
